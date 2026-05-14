@@ -1,0 +1,63 @@
+{
+  "name": "registryx-vscode-extension",
+  "displayName": "RegistryX MCP Server",
+  "description": "VS Code extension providing MCP server for unified access to npm, PyPI, Maven Central, and crates.io",
+  "version": "0.1.0",
+  "publisher": "bhayanak",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bhayanak/registryx-mcp-server"
+  },
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": ["AI", "Chat"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "mcpServerDefinitionProviders": [
+      {
+        "id": "registryx",
+        "label": "RegistryX"
+      }
+    ],
+    "configuration": {
+      "title": "RegistryX MCP Server",
+      "properties": {
+        "registryx.registries": {
+          "type": "string",
+          "default": "npm,pypi,maven,crates",
+          "description": "Enabled registries (comma-separated: npm, pypi, maven, crates)"
+        },
+        "registryx.npmToken": {
+          "type": "string",
+          "default": "",
+          "description": "npm auth token for private packages"
+        },
+        "registryx.timeoutMs": {
+          "type": "number",
+          "default": 15000,
+          "description": "Request timeout in milliseconds (1000–120000)"
+        },
+        "registryx.cacheTtlMs": {
+          "type": "number",
+          "default": 300000,
+          "description": "In-memory cache TTL in milliseconds (0 to disable)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node build.cjs",
+    "package": "node build.cjs && npx @vscode/vsce package --no-dependencies --out registryx-0.1.0.vsix",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.99.0",
+    "esbuild": "^0.21.0",
+    "typescript": "^5.0.0",
+    "@vscode/vsce": "^3.0.0"
+  },
+  "license": "MIT"
+}

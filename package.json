@@ -1,0 +1,19 @@
+{
+  "name": "registryx-mcp-server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm -r run build",
+    "dev": "pnpm --filter registryx-server run dev",
+    "test": "pnpm --filter registryx-server run test",
+    "test:coverage": "pnpm --filter registryx-server run test:coverage",
+    "lint": "pnpm --filter registryx-server run lint",
+    "typecheck": "pnpm -r run typecheck",
+    "format": "pnpm --filter registryx-server run format",
+    "ci": "pnpm --filter registryx-server run ci",
+    "package": "pnpm --filter registryx-vscode-extension run package"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
