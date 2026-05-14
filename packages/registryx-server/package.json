@@ -2,6 +2,7 @@
   "name": "registryx-server",
   "version": "0.1.0",
   "description": "MCP server providing unified access to npm, PyPI, Maven Central, and crates.io package registries",
+  "readme": "README.md",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
